@@ -1,0 +1,53 @@
+
+
+    <div class="container">
+
+        <table class="table">
+            
+            <thead class="thead-dark">
+           
+            <tr>
+                <th>Image</th>
+                <th>ID</th>
+                <th>URL</th>
+                <th>Title</th>
+            </tr>
+        </thead> 
+
+            <tr *ngFor="let n of newData">
+
+                <td><img src="{{n.url}}" alt="" width="100"></td>
+                <td>{{n.id}}</td>
+                <td>{{n.url}}</td>
+                <td>{{n.title}}</td>
+               
+
+            </tr>
+
+        </table>
+
+    <div class="row">
+        <div class="col-sm-4" *ngFor ='let d of Data;let i=index;'>
+             <div class="card" style="width: 18rem;">
+        
+            <div >
+                  <img src="{{d.url}}" alt="" width="140" class="card-img-top">
+                  <div class="card-body">
+                        <h5 class="card-title">Title : {{d.title}}</h5>
+                        
+                        <p class="text-center">ID : {{d.id}}</p>
+                        <p class="text-center">URL :{{d.url}}</p>
+                          
+                         <!-- <span class="text-center"><button id="btt" class="btn btn-warning"  (click)="d.compare === true ? 'Remove(i)' : 'Compare(i)'">{{d.compare === true ? 'Remove' : 'Compare'}}</button></span> -->
+                         <span class="text-center"><button  class="btn btn-warning" *ngIf="d.compare !== true"  (click)="compare(i)">Compare</button></span>
+                         <span class="text-center"><button  class="btn btn-warning" *ngIf="d.compare == true"  (click)="remove(d,i)">Remove</button></span>
+                    
+                        </div>  
+
+            </div>   
+         </div>
+        </div>
+     </div>
+
+    </div>
+
